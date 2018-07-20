@@ -1,0 +1,23 @@
+* {
+    font-family: Catamaran, sans-serif;
+}
+
+canvas {
+    border: 2px solid black;
+    background: #aaaaaa;
+    float:left;
+}
+
+.inputContainer {
+    float:left;
+}
+
+.inputContainer ul {
+    list-style: none;
+    height: 100%;
+    width: auto;
+}
+
+.inputContainer ul li {
+    margin-bottom: 5%;
+}

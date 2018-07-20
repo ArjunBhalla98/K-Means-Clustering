@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="cluster.js"></script>
+    <title>K-Means Clustering</title>
+  </head>
+  <body>
+    <h1>K means clustering, 2 features per input value</h1>
+      <canvas id = "canvas" width="800" height="600">
+      </canvas>
+    <div class = "inputContainer">
+      <ul>
+        <li>Number of X values (n):&nbsp;<input type = "text" size = "1" name = "x" id = "xField" value = "20"></li>
+        <li>Number of clusters (K):&nbsp; <input type = "text" size = "1" name = "k" id = "kField" value = "3"></li>
+        <li>Epsilon Value (e): &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <input type = "text" size = "1" name = "e" id = "eField" value = "0.5"></li>
+        <li><button name="generate" onclick={generate()}>Generate New</button></li>
+        <li><button name="step" onclick={step()}>Step</button></li>
+        <h3>Steps Used:</h3>
+      </ul>
+    </div>
+    
+  </body>
+  <footer>
+      <h5>Created by Arjun Bhalla, 2018</h5>
+  </footer>
+  
+</html>
