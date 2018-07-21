@@ -5,6 +5,7 @@ var epsilon = 0;
 var count = 0;
 var isOver = false;
 const circleSize = 8;
+var update_cents = true;
 const colour_list = ["red","blue","yellow","green","pink","purple","orange","teal","brown","white"];
 
 function pullNumbers() {
@@ -46,7 +47,7 @@ function generateRandomPoints(x, k) {
 }
 
 function draw(){
-    // Expects 2 arrays
+    
     const canvas = document.getElementById("canvas");
     let context = document.querySelector("canvas").getContext("2d");
 
@@ -57,8 +58,8 @@ function draw(){
         context.fillStyle = clust.colour;
         context.strokeStyle = "black";
         context.beginPath();
-        let currX = clusters[i].position[0];
-        let currY = clusters[i].position[1];
+        let currX = clusters[i].position[0] - 12.5;
+        let currY = clusters[i].position[1] + 12.5;
         context.moveTo(currX, currY);
         context.lineTo(currX + 25, currY);
         context.stroke();
@@ -79,6 +80,7 @@ function draw(){
     }
     drawPath();
 }
+
 
 function drawPath(){
     let context = document.querySelector("canvas").getContext("2d");
@@ -209,8 +211,15 @@ function step(){
     draw();
     checkIsOver();
     updateCount();
+}
 
-    
+function updateCentroids(){
 
+}
 
+function animate_method(){
+    step();
+    if(!isOver){
+        animate_method();   
+    }
 }
