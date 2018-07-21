@@ -21,3 +21,8 @@ canvas {
 .inputContainer ul li {
     margin-bottom: 5%;
 }
+
+footer h5 {
+    float:left;
+    width: 100%;
+}

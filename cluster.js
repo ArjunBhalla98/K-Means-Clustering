@@ -3,5 +3,6 @@ class Cluster {
         this.position = position;
         this.xPoints = xPoints;
         this.colour = colour;
+        this.pastLocations = [position];
     }
 }
