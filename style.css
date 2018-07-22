@@ -26,3 +26,13 @@ footer h5 {
     float:left;
     width: 100%;
 }
+
+#lastAction {
+    width: 25%;
+    float:right;
+}
+
+#stepsUsed {
+    width: 25%;
+    float:right;
+}

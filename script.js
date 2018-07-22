@@ -112,6 +112,10 @@ function calculateDistance(point1, point2){
 }
 
 function matchXtoK(){
+    for(let k = 0; k < clusters.length; k++){
+        clusters[k].xPoints = [];
+    }
+
     for(let i = 0; i < xPoints.length; i++){
         var closest_cluster = clusters[0];
         var cluster_min_dist = 999999;
@@ -134,12 +138,15 @@ function generate(){
     clearCanvas();
     var countHeader = document.getElementById("stepsUsed");
     countHeader.innerText = "Steps Used: 0";
+    var lastAc = document.getElementById("lastAction");
+    lastAc.innerText = "Last Action: N/A"
     clusters = [];
     kPoints = [];
     xPoints = [];
     count = 0;
     epsilon = values[2];
     isOver = false;
+    update_cents = true;
 
     generateRandomPoints(values[0], values[1]);
 
@@ -186,7 +193,6 @@ function recalculatePositions(){
 
         if(clus.xPoints.length != 0){
             clus.position = averageLocation(clus.xPoints);
-            clus.xPoints = [];
         }
         clus.pastLocations.push(clus.position);
     }
@@ -203,18 +209,43 @@ function updateCount(){
 
 function step(){
     clearCanvas();
-    // Recalculate positions of clusters
-    recalculatePositions();
-
-    // Re-match stuff and update
-    matchXtoK();
-    draw();
-    checkIsOver();
-    updateCount();
+    if(update_cents){
+        update_cents = false;
+        updateCentroids();
+        
+    } else { // Reassign points
+        update_cents = true;
+        reassignPoints();
+        
+    }
+    if(!isOver){
+        updateLastAction();
+    }
+    
 }
 
 function updateCentroids(){
+    
+    recalculatePositions();
+    draw();
+    updateCount();
+    checkIsOver();
+}
 
+function reassignPoints(){
+    
+    matchXtoK();
+    draw();
+    checkIsOver();
+       
+}
+
+function updateLastAction(){
+    if(!isOver){
+        var el = document.getElementById("lastAction");
+        el.innerText = update_cents ? "Last Action: Reassign points" : "Last Action: Update Centroids";
+    }
+    
 }
 
 function animate_method(){
