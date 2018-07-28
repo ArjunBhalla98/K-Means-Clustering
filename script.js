@@ -139,7 +139,7 @@ function generate(){
     var countHeader = document.getElementById("stepsUsed");
     countHeader.innerText = "Steps Used: 0";
     var lastAc = document.getElementById("lastAction");
-    lastAc.innerText = "Last Action: N/A"
+    lastAc.innerText = "Last Action: Generate Clusters"
     clusters = [];
     kPoints = [];
     xPoints = [];
